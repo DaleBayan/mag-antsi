@@ -941,6 +941,9 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  {{-- Alphine JS --}}
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/dashboard/vendor/apexcharts/apexcharts.min.js') }}"></script>
   <script src="{{ asset('backend/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

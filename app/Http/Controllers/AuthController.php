@@ -23,7 +23,7 @@ class AuthController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/dashboard')->with('message', 'You are now logged in!');
+            return redirect('/dashboard')->with('message', 'Welcome! You are now logged in!');
         }
 
         return back()->withErrors(['username' => 'Invalid Credentials'])->onlyInput('username');
@@ -37,7 +37,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('message', 'You have been logged out!');
+        return redirect('/login')->with('message', 'Goodbye! You have been logged out!');
 
     }
 

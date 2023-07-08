@@ -6,8 +6,7 @@
     <div class="h-5/6 w-5/6 px-8 md:px-0 bg-white md:bg-green-100 grid md:grid-cols-2 place-items-center md:rounded md:shadow-lg">
         
         {{-- Overview of the Project --}}
-        <div class="hidden p-0 md:p-24 h-full w-full md:flex flex-col justify-between items-start">
-            {{-- Website Logo --}}
+        <div class="hidden p-0 md:p-24 h-full w-full md:flex flex-col justify-start items-start">
             
             <div class="space-y-5">
                 <h1 class="font-bold text-5xl text-green-600 tracking-tight">
@@ -18,22 +17,34 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptates, recusandae ut molestiae ea qui quia incidunt praesentium quae molestias repudiandae aliquid eius deleniti eos? Nobis, voluptate neque! Iste, ea?
                 </p>
             </div>
-
-            <div class="w-1/2">
-                <img src="{{ asset('backend/images/logo.png') }}" alt="">
-            </div>
         </div>
 
         {{-- Log in Card --}}
-        <form method="POST" action="{{ route('authenticate') }}" class="md:px-10 md:h-5/6 md:w-2/3 bg-white flex flex-col justify-center items-center md:items-start gap-y-8 md:rounded md:shadow-lg text-green-700">
+        <form
+            method="POST"
+            action="{{ route('authenticate') }}"
+            class="relative md:pt-10 md:px-10 md:h-5/6 md:w-2/3 bg-white flex flex-col justify-start items-center md:items-start gap-y-8 md:rounded md:shadow-lg text-green-700">
         @csrf
+            
+            @if(session()->has('message'))
+                <div
+                    class="pt-1.5 pl-10 fixed md:absolute top-0 left-0"
+                    x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)"
+                    x-show="show"
+                    x-transition:leave.opacity.scale.50.duration.500ms>
+                    <p class="py-1.5 px-3 border border-green-600 font-bold text-center md:text-start text-green-600 tracking-tight rounded shadow-2xl">
+                        <i class="fa-solid fa-hands-clapping"></i>
+                        {{session('message')}}
+                    </p>
+                </div>
+            @endif
 
-            <div class="text-center md:text-start">
+            <div class="mt-1.5 text-center md:text-start space-y-1">
                 <h1 class="mb-2 block md:hidden font-bold text-5xl text-green-600">
                     Mag<span class="text-gray-900">-</span><span class="text-red-600">Antsi</span> <span class="font-normal text-gray-800 text-2xl">Project</span>
                 </h1>
-                <h2 class="font-bold text-sm md:text-normal text-red-600 tracking-wide">Welcome back!</h2>
-                <h3 class="font-bold text-sm md:text-normal text-red-600 tracking-wide">Please log in to your account.</h3>
+                <h2 class="font-bold text-xl md:text-normal text-red-600 tracking-tight">Login</h2>
+                <h3 class="font-bold text-sm md:text-normal text-red-600 tracking-tight">Welcome back! Please log in to your account.</h3>
             </div>
             
             <div class="w-full space-y-2">
@@ -58,16 +69,14 @@
                 Sign in
             </button>
 
-             <img src="{{ asset('backend/images/logo.png') }}" alt="" class="mt-5 block md:hidden w-1/3">
+             <img src="{{ asset('backend/images/logo.png') }}" alt="" class="mt-5 block w-3/4 md:w-1/3">
         </form>
 
     </div>
 
     {{-- Mobile Version Footer --}}
-
     <div class="block md:hidden fixed bottom-0 w-full p-12 bg-green-600"></div>
  
-   
 
 </section>
 
