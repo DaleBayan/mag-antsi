@@ -23,7 +23,7 @@ class AuthController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'You are now logged in!');
+            return redirect('/dashboard')->with('message', 'You are now logged in!');
         }
 
         return back()->withErrors(['username' => 'Invalid Credentials'])->onlyInput('username');

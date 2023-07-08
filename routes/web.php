@@ -1,14 +1,6 @@
 <?php
 
-Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
-
-
-require __DIR__ . '/direct/auth.php';
-
-Route::fallback(function () {
-    return view('404');
-});
+// [START] - Backend Routes
+require __DIR__ . '/backend/unclassified.php';
+require __DIR__ . '/backend/auth.php';
+// [END] - Backend Routes
