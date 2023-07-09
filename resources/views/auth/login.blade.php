@@ -23,12 +23,12 @@
         <form
             method="POST"
             action="{{ route('authenticate') }}"
-            class="relative md:pt-10 md:px-10 md:h-5/6 md:w-2/3 bg-white flex flex-col justify-start items-center md:items-start gap-y-8 md:rounded md:shadow-lg text-green-700">
+            class="relative md:pt-10 md:px-10 md:h-5/6 md:w-2/3 bg-white flex flex-col justify-start items-center md:items-start gap-y-6 md:rounded md:shadow-lg text-green-700">
         @csrf
             
             @if(session()->has('message'))
                 <div
-                    class="pt-1.5 pl-10 fixed md:absolute top-0 left-0"
+                    class="pt-1.5 mx-10 fixed md:absolute top-0 left-0 right-0"
                     x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)"
                     x-show="show"
                     x-transition:leave.opacity.scale.50.duration.500ms>
@@ -39,12 +39,12 @@
                 </div>
             @endif
 
-            <div class="mt-1.5 text-center md:text-start space-y-1">
+            <div class="mt-2 text-center md:text-start space-y-1">
                 <h1 class="mb-2 block md:hidden font-bold text-5xl text-green-600">
                     Mag<span class="text-gray-900">-</span><span class="text-red-600">Antsi</span> <span class="font-normal text-gray-800 text-2xl">Project</span>
                 </h1>
-                <h2 class="font-bold text-xl md:text-normal text-red-600 tracking-tight">Login</h2>
-                <h3 class="font-bold text-sm md:text-normal text-red-600 tracking-tight">Welcome back! Please log in to your account.</h3>
+                <h2 class="font-bold text-xl md:text-normal tracking-tight">Login</h2>
+                <h3 class="font-bold text-sm md:text-normal tracking-tight">Welcome back! Please log in to your account.</h3>
             </div>
             
             <div class="w-full space-y-2">
@@ -69,7 +69,7 @@
                 Sign in
             </button>
 
-             <img src="{{ asset('backend/images/logo.png') }}" alt="" class="mt-5 block w-3/4 md:w-1/3">
+             <img src="{{ asset('backend/images/logo.png') }}" alt="" class="block w-3/4 md:w-1/2">
         </form>
 
     </div>
