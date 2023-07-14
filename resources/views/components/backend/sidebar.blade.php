@@ -64,7 +64,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{ route('users.index') }}">
               <i class="fa-solid fa-user-group"></i><span>System Users</span>
             </a>
           </li>
@@ -74,8 +74,8 @@
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="fa-solid fa-user-lock"></i><span>Reset Password</span>
+            <a href="{{ route('change_password.index') }}">
+              <i class="fa-solid fa-lock"></i><span>Change Password</span>
             </a>
           </li>
           

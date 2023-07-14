@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description_eng');
             $table->text('description_fil');
             $table->string('mag-antsi', 255)->nullable();
-            $table->attachments('mag-antsi', 255)->nullable();
+            $table->string('attachments', 255)->nullable();
         });
     }
 
