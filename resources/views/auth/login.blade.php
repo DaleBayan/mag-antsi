@@ -28,11 +28,11 @@
             
             @if(session()->has('message'))
                 <div
-                    class="pt-1.5 mx-10 fixed md:absolute top-0 left-0 right-0"
+                    class="pb-40 md:p-5 fixed md:absolute bottom-0"
                     x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)"
                     x-show="show"
                     x-transition:leave.opacity.scale.50.duration.500ms>
-                    <p class="py-1.5 px-3 border border-green-600 font-bold text-center md:text-start text-green-600 tracking-tight rounded shadow-2xl">
+                    <p class="py-1.5 px-3 bg-green-700 font-bold text-center md:text-start text-white tracking-tight rounded shadow-2xl">
                         <i class="fa-solid fa-hands-clapping"></i>
                         {{session('message')}}
                     </p>

@@ -59,7 +59,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{ route('user_roles.index') }}">
               <i class="fa-solid fa-user-gear"></i><span>User Role</span>
             </a>
           </li>
