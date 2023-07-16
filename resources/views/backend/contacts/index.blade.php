@@ -10,32 +10,37 @@
           <div class="card-body">
            
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title"><i class="fa-solid fa-user-gear me-2"></i>USER ROLES</h5>
-                <a href="{{ route('user_roles.create') }}" class="btn btn-sm btn-primary">Create a User Role</a>
+                <h5 class="card-title"><i class="fa-solid fa-address-book me-2"></i>CONTACTS</h5>
+                <a href="{{ route('contacts.create') }}" class="btn btn-sm btn-primary">Create a Contact</a>
             </div>
             
             <table class="table datatable">
               <thead>
                 <tr>
-                  <th scope="col">User Role</th>
-                  <th scope="col">Description</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Mobile Number</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Designation</th>
                   <th scope="col">Date Created</th>
                   <th scope="col">Options</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ( $user_roles as $user_role)
+                @foreach ( $contacts as $contact)
                 <tr>
-                    <td>{{$user_role->role }}</td>
-                    <td>{{$user_role->description}}</td>
-                    <td>{{date('M d, Y', strtotime($user_role->created_at))}}</td>
+                    <td>{{$contact->full_name }}</td>
+                    <td>{{$contact->mobile_number}}</td>
+                    <td>{{$contact->email}}</td>
+                    <td>{{$contact->designation}}</td>
+                    <td>{{date('M d, Y', strtotime($contact->created_at))}}</td>
                     <td>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserRoleModal{{$user_role->id}}">Delete</button>
+                        <a href="{{ route('contacts.edit', Crypt::encryptString($contact->id)) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserRoleModal{{$contact->id}}">Delete</button>
                     </td>
                 </tr>
 
-                {{-- [START] - Delete User Role Modal --}}
-                <div class="modal fade" id="deleteUserRoleModal{{$user_role->id}}" tabindex="-1">
+                {{-- [START] - Delete Contact Modal --}}
+                <div class="modal fade" id="deleteUserRoleModal{{$contact->id}}" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -43,11 +48,11 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          Are you sure you want to delete <b>{{ $user_role->role }}</b> Role?
+                          Are you sure you want to delete <b>{{ $contact->full_name }}</b>?
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                          <form method="POST" action="{{ route('user_roles.destroy', Crypt::encryptString($user_role->id))}}">
+                          <form method="POST" action="{{ route('contacts.destroy', Crypt::encryptString($contact->id)) }}">
                               @csrf
                               @method('DELETE')
                               <button class="btn btn-success">Confirm</button>
@@ -56,7 +61,7 @@
                       </div>
                     </div>
                   </div>
-                  {{-- [END] - Delete User Role Modal --}}
+                  {{-- [END] - Delete Contact Modal --}}
 
                 @endforeach
               </tbody>

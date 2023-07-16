@@ -54,13 +54,13 @@
         </a>
         <ul id="collapseSystemSetup" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{ route('contacts.index') }}">
               <i class="fa-solid fa-address-book"></i><span>Contact Page</span>
             </a>
           </li>
           <li>
             <a href="{{ route('user_roles.index') }}">
-              <i class="fa-solid fa-user-gear"></i><span>User Role</span>
+              <i class="fa-solid fa-user-gear"></i><span>User Roles</span>
             </a>
           </li>
           <li>

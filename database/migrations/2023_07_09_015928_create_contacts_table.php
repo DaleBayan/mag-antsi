@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mobile_number', 25);
             $table->string('email', 50)->unique();
             $table->string('designation', 50);
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
         });
     }
 

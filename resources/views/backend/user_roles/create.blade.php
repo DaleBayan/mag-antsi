@@ -15,8 +15,8 @@
                 @csrf
                 <div class="col-6">
                     <label for="inputNanme4" class="form-label">User Role</label>
-                    <input type="text" class="form-control" name="user_role" value="{{old('user_role')}}">
-                    @error('user_role')
+                    <input type="text" class="form-control" name="role" value="{{old('role')}}">
+                    @error('role')
                     <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
