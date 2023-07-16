@@ -35,12 +35,12 @@
                     <td>{{date('M d, Y', strtotime($contact->created_at))}}</td>
                     <td>
                         <a href="{{ route('contacts.edit', Crypt::encryptString($contact->id)) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserRoleModal{{$contact->id}}">Delete</button>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModal{{$contact->id}}">Delete</button>
                     </td>
                 </tr>
 
                 {{-- [START] - Delete Contact Modal --}}
-                <div class="modal fade" id="deleteUserRoleModal{{$contact->id}}" tabindex="-1">
+                <div class="modal fade" id="deleteContactModal{{$contact->id}}" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-header">

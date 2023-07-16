@@ -18,7 +18,7 @@
         </a>
         <ul id="collapseFileMaintenance" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{ route('types.index') }}">
               <i class="fa-solid fa-photo-film"></i><span>Content Type</span>
             </a>
           </li>
