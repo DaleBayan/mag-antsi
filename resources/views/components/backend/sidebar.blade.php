@@ -33,7 +33,7 @@
         </a>
         <ul id="collapsePage" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{ route('contents.index') }}">
               <i class="fa-solid fa-image"></i><span>Contents</span>
             </a>
           </li>
