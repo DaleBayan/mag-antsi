@@ -49,4 +49,13 @@ class ContentController extends Controller
 
         return redirect()->route('contents.index')->with('message', 'Content Successfully Created');
     }
+
+    public function show($content)
+    {
+
+        return view('backend.contents.show', [
+            'content' => Content::find(Crypt::decryptString($content)),
+        ]);
+    }
+
 }

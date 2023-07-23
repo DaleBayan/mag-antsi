@@ -33,7 +33,7 @@
                     <td>{{ date('M d, Y', strtotime($content->created_at)) }}</td>
                     <td>{{ $content->spotlight === 1 ? 'Yes' : 'No' }}</td>
                     <td>
-                      <a href="" class="btn btn-info btn-sm">View</a>
+                      <a href="{{ route('contents.show', Crypt::encryptString($content->id)) }}" class="btn btn-info btn-sm">View</a>
                     </td>
                 </tr>
 

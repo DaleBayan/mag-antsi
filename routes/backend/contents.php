@@ -12,6 +12,7 @@ Route::controller(ContentController::class)->group(function () {
                 Route::get('/', 'index')->name('contents.index');
                 Route::get('/create', 'create')->name('contents.create');
                 Route::post('/store', 'store')->name('contents.store');
+                Route::get('/show/{content}', 'show')->name('contents.show');
             });
         });
 
