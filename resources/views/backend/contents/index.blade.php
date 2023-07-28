@@ -36,31 +36,6 @@
                       <a href="{{ route('contents.show', Crypt::encryptString($content->id)) }}" class="btn btn-info btn-sm">View</a>
                     </td>
                 </tr>
-
-                {{-- [START] - Delete User Modal --}}
-                {{-- <div class="modal fade" id="deleteUserModal{{$user->id}}" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Warning</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Are you sure you want to delete <b>{{ $user->username }}</b>?
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <form method="POST" action="{{ route('users.destroy', Crypt::encryptString($user->id)) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-success">Confirm</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div> --}}
-                {{-- [END] - Delete User Modal --}}
-
                 @endforeach
               </tbody>
             </table>
