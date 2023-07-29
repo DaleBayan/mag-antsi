@@ -38,7 +38,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{ route('glossaries.index') }}">
               <i class="fa-solid fa-book"></i><span>Glossary</span>
             </a>
           </li>

@@ -21,5 +21,32 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'user_role' => 'Super Administrator',
         ]);
+
+        \App\Models\Type::create([
+            'type' => 'Song',
+        ]);
+
+        \App\Models\Type::create([
+            'type' => 'Dance',
+        ]);
+
+        \App\Models\Type::create([
+            'type' => 'Ritual',
+        ]);
+
+        \App\Models\UserRole::create([
+            'role' => 'Super Administrator',
+            'description' => 'Super Administrator',
+        ]);
+
+        \App\Models\UserRole::create([
+            'role' => 'Administrator',
+            'description' => 'Administrator',
+        ]);
+
+        \App\Models\UserRole::create([
+            'role' => 'Content Creator',
+            'description' => 'Content Creator',
+        ]);
     }
 }

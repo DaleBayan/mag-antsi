@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Glossary extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'slug',
+        'term_eng',
+        'term_fil',
+        'description_eng',
+        'description_fil',
+        'mag-antsi',
+    ];
 }
