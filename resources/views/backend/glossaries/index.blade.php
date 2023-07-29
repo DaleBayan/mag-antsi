@@ -29,7 +29,7 @@
                     <td>{{ $glossary->term_eng }}</td>
                     <td>{{ date('F d, Y', strtotime($glossary->created_at)) }}</td>
                     <td>
-                      <a href="" class="btn btn-info btn-sm">View</a>
+                      <a href="{{ route('glossaries.show', Crypt::encryptString($glossary->id)) }}" class="btn btn-info btn-sm">View</a>
                       <a href="" class="btn btn-primary btn-sm">Attachments</a>
                     </td>
                 </tr>

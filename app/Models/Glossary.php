@@ -15,6 +15,6 @@ class Glossary extends Model
         'term_fil',
         'description_eng',
         'description_fil',
-        'mag-antsi',
+        'mag_antsi',
     ];
 }

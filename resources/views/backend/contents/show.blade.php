@@ -52,18 +52,18 @@
     </div>
 
     <div class="mt-3 row gap-3">
-        <div class="col-12 text-dark">
-            <h5 class="text-success">English</h5>
+        <div class="p-3 card col-12 text-dark">
+            <h5 class="card-title text-success">English</h5>
             {!! $content->body_eng !!}
         </div>
-        <div class="col-12 text-dark">
-            <h5 class="text-success">Filipino</h5>
+        <div class="p-3 card col-12 text-dark">
+            <h5 class="card-title text-success">Filipino</h5>
             {!! $content->body_fil !!}
         </div>
-        <div class="col-12">
-            <h5 class="text-success">Mag-Antsi</h5>
+        <div class="p-3 card col-12">
+            <h5 class="card-title text-success">Mag-Antsi</h5>
             @isset($content->mag_antsi)
-                <img src="{{ asset('storage/' . $content->mag_antsi) }}" alt="" class="mt-1 w-50 text-center">
+                <img src="{{ asset('storage/' . $content->mag_antsi) }}" alt="" class="mx-auto w-50 text-center">
             @else
                 <h1 class="p-5 text-danger text-center">No Mag-Antsi Avalaible</h1>  
             @endisset

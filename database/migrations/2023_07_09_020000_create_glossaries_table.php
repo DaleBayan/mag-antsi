@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('term_fil', 255);
             $table->text('description_eng');
             $table->text('description_fil');
-            $table->string('mag-antsi', 255)->nullable();
+            $table->string('mag_antsi', 255)->nullable();
         });
     }
 
