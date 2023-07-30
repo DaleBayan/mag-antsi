@@ -20,8 +20,8 @@
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  {{-- DropzoneJs Css --}}
-  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  {{-- Filepond CSS --}}
+  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="{{ asset('backend/dashboard/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -51,9 +51,6 @@
     {{-- Back to the top --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    {{-- Dropzone JS --}}
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-
     {{-- Alphine JS --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -66,7 +63,10 @@
     <script src="{{ asset('backend/dashboard/vendor/simple-datatables/simple-datatables.js') }}"></script>
     <script src="{{ asset('backend/dashboard/vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('backend/dashboard/vendor/php-email-form/validate.js') }}"></script>
-
+    
+    {{-- Filepond JS --}}
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+    
     <!-- Template Main JS File -->
     <script src="{{ asset('backend/dashboard/main.js') }}"></script>
 

@@ -92,7 +92,7 @@ class ContentController extends Controller
 
         $content->update($contentInfo);
 
-        return redirect()->route('contents.index')->with('message', 'Content Successfully Update');
+        return redirect()->route('contents.index')->with('message', 'Content Successfully Updated');
     }
 
     public function destroy($content)

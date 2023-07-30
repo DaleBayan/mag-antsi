@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Glossary;
+use App\Models\Attachment;
 use App\Http\Requests\StoreGlossaryRequest;
 use App\Http\Requests\UpdateGlossaryRequest;
 use Illuminate\Http\Request;
@@ -66,6 +67,26 @@ class GlossaryController extends Controller
         $glossary->update($glossaryInfo);
 
         return redirect()->route('glossaries.index')->with('message', 'Term Successfully Updated');
+    }
+
+    public function destroy($glossary)
+    {
+        $glossary = Glossary::findOrFail(Crypt::decryptString($glossary));
+
+        if ($glossary->media && Storage::disk('public')->exists($glossary->media)) {
+            Storage::disk('public')->delete($glossary->media);
+        }
+
+        $attachments = Attachment::where('glossary_id', $glossary->id)->get();
+
+        foreach ($attachments as $attachment) {
+            $attachment = $attachment->media;
+            Storage::disk('public')->delete($attachment);
+        }
+
+        $glossary->delete();
+
+        return redirect()->route('glossaries.index')->with('message', 'Term Successfully Deleted');
     }
 
     public function show($glossary)

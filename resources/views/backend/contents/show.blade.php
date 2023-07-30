@@ -77,7 +77,7 @@
         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContentModal{{ $content->id }}">Delete</button>
     </div>
 
-    {{-- [START] - Delete User Modal --}}
+    {{-- [START] - Delete Content Modal --}}
     <div class="modal fade" id="deleteContentModal{{$content->id}}" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -99,7 +99,7 @@
         </div>
         </div>
     </div>
-    {{-- [END] - Delete User Modal --}}
+    {{-- [END] - Delete Content Modal --}}
 
 </div>
 

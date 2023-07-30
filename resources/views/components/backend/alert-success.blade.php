@@ -1,5 +1,5 @@
 @if(session()->has('message')) 
-    <div class="p-5 w-100 fixed-bottom d-flex justify-content-end">
+    <div class="p-5 w-100 fixed-bottom d-flex justify-content-end z-n1">
         <div
         x-data="{show: true}" 
         x-init="setTimeout(() => show = false, 3000)"

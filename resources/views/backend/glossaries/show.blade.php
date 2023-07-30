@@ -49,11 +49,34 @@
     <div class="my-5 text-center">
         <a href="{{ route('glossaries.index') }}" class="btn btn-secondary">Back</a>
         <a href="{{ route('glossaries.edit', Crypt::encryptString($glossary->id)) }}" class="btn btn-warning">Edit</a>
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContentModal">Delete</button>
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteGlossary{{ $glossary->id }}">Delete</button>
     </div>
 
 </div>
 
+{{-- [START] - Delete All Attachments Modal --}}
+<div class="modal fade" id="deleteGlossary{{ $glossary->id }}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Warning</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        Are you sure you want to delete <b>{{ $glossary->term_eng }}</b>? All of the term attachments would also be deleted.
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <form method="POST" action="{{ route('glossaries.destroy', Crypt::encryptString($glossary->id)) }}">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-success">Confirm</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+{{-- [END] - Delete All Attachments Modal --}}
 
 
 @endsection

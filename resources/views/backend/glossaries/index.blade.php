@@ -30,7 +30,7 @@
                     <td>{{ date('F d, Y', strtotime($glossary->created_at)) }}</td>
                     <td>
                       <a href="{{ route('glossaries.show', Crypt::encryptString($glossary->id)) }}" class="btn btn-info btn-sm">View</a>
-                      <a href="" class="btn btn-primary btn-sm">Attachments</a>
+                      <a href="{{ route('attachments.index', Crypt::encryptString($glossary->id)) }}" class="btn btn-primary btn-sm">Attachments</a>
                     </td>
                 </tr>
                 @endforeach

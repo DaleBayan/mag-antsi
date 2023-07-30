@@ -17,4 +17,8 @@ class Glossary extends Model
         'description_fil',
         'mag_antsi',
     ];
+
+    public function attachments() {
+        return $this->hasMany(Attachment::class, 'glossary_id');
+    }
 }

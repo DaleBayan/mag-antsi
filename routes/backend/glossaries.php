@@ -14,6 +14,7 @@ Route::controller(GlossaryController::class)->group(function () {
                 Route::post('/store', 'store')->name('glossaries.store');
                 Route::get('/edit/{glossary}', 'edit')->name('glossaries.edit');
                 Route::put('/update/{glossary}', 'update')->name('glossaries.update');
+                Route::delete('/destroy/{glossary}', 'destroy')->name('glossaries.destroy');
                 Route::get('/show/{glossary}', 'show')->name('glossaries.show');
             });
         });
