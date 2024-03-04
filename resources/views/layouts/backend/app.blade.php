@@ -34,6 +34,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('backend/dashboard/style.css') }}" rel="stylesheet">
+  
 </head>
   <body>
 
@@ -41,7 +42,8 @@
     <x-backend.header />
 
     {{-- Sidebar --}}
-    <x-backend.sidebar />
+    {{-- <x-backend.sidebar /> --}}
+    @include('components.backend.sidebar')
 
     {{-- Main Content --}}
     <main id="main" class="main">

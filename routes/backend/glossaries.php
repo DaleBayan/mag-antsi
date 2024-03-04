@@ -5,7 +5,7 @@ use App\Http\Controllers\GlossaryController;
 
 Route::controller(GlossaryController::class)->group(function () {
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth'])->group(function () {
 
         Route::prefix('dashboard')->group(function () {
             Route::prefix('glossaries')->group(function () {

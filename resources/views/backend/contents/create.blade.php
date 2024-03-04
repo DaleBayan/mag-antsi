@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('content')
-
+<x-backend.alert-success />
 <form method="POST" action="{{ route('contents.store') }}" enctype="multipart/form-data" class="container">
 @csrf
     {{-- [START] - Row for Content Type, Title English, and Title Filipino --}}
@@ -21,11 +21,9 @@
                             <option value="{{ $type->type }}" {{ $loop->first ? 'selected' : '' }} >{{ $type->type }}</option>
                           @endforeach
                         </select>
-                        
                         @error('type')
                         <small class="text-danger">{{$message}}</small>
                         @enderror
-
                       </div>
 
                       <div class="col-3"></div>
@@ -44,7 +42,7 @@
 
                       <div class="col-6">
                         <label for="title_eng" class="form-label">Title (English)</label>
-                        <input type="text" class="form-control" id="title_eng" name="title_eng">
+                        <input type="text" class="form-control" id="title_eng" name="title_eng" value="{{ old('title_eng') }}">
                         @error('title_eng')
                         <small class="text-danger">{{$message}}</small>
                         @enderror
@@ -52,7 +50,7 @@
 
                       <div class="col-6">
                         <label for="title_fil" class="form-label">Title (Filipino)</label>
-                        <input type="text" class="form-control" id="title_fil" name="title_fil">
+                        <input type="text" class="form-control" id="title_fil" name="title_fil"  value="{{ old('title_fil') }}">
                         @error('title_fil')
                         <small class="text-danger">{{$message}}</small>
                         @enderror
@@ -74,7 +72,7 @@
                   <h5 class="card-title">Post Body (English)</h5>
     
                   <textarea class="tinymce-editor" name="body_eng">
-                    
+                    {{ old('body_eng') }}
                   </textarea>
                   @error('body_eng')
                   <small class="text-danger">{{$message}}</small>
@@ -88,7 +86,7 @@
                   <h5 class="card-title">Post Body (Filipino)</h5>
     
                   <textarea class="tinymce-editor" name="body_fil">
-                    
+                    {{ old('body_fil') }}
                   </textarea>
                   @error('body_fil')
                   <small class="text-danger">{{$message}}</small>
@@ -142,9 +140,8 @@
                   x-show="mediaState"
                   x-transition:enter.opacity.duration.1000ms        
                   x-cloak>
-              
                 <label for="title_eng" class="form-label">Embed Link</label>
-                <input type="text" class="form-control" name="embed">
+                <input type="text" class="form-control" name="embed" value="{{ old('embed') }}">
                 @error('embed')
                 <small class="text-danger">{{$message}}</small>
                 @enderror

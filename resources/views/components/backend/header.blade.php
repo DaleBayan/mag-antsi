@@ -12,7 +12,7 @@
         <ul class="d-flex align-items-center">
         <li class="nav-item dropdown pe-3">
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->username }}</span>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

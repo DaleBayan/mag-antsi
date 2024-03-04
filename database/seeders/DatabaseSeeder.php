@@ -36,12 +36,12 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\UserRole::create([
             'role' => 'Super Administrator',
-            'description' => 'Super Administrator',
+            'description' => 'Super Admin',
         ]);
 
         \App\Models\UserRole::create([
             'role' => 'Administrator',
-            'description' => 'Administrator',
+            'description' => 'Admin',
         ]);
 
         \App\Models\UserRole::create([

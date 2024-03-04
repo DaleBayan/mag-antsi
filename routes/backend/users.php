@@ -15,6 +15,8 @@ Route::controller(UserController::class)->group(function () {
                 Route::get('/edit/{user}', 'edit')->name('users.edit');
                 Route::put('/update/{user}', 'update')->name('users.update');
                 Route::delete('/destroy/{user}', 'destroy')->name('users.destroy');
+                Route::get('/reset/{user}','editPassword')->name('password.edit');
+                Route::post('/reset/pass/{user}','resetPassword')->name('users.resets');
             });
         });
 

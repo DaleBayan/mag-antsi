@@ -5,12 +5,11 @@
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
-
         <div class="card">
           <div class="card-body">
            
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title"><i class="fa-solid fa-user-group me-2"></i>SYSTEM USERS</h5>
+                <h5 class="card-title"> <i class="fa-solid fa-photo-film"></i>Contents</h5>
                 <a href="{{ route('contents.create') }}" class="btn btn-sm btn-primary">Create a Content</a>
             </div>
             
@@ -40,7 +39,6 @@
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
-
           </div>
         </div>
 

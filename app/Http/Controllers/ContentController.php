@@ -16,46 +16,59 @@ class ContentController extends Controller
     public function index()
     {
         return view('backend.contents.index', [
+            'show' => 'page',
+            'active' => 'content',
             'contents' => Content::select('id', 'type', 'title_eng', 'created_at', 'spotlight')->get(),
+            
         ]);
     }
 
     public function create()
     {
         return view('backend.contents.create', [
+            'show' => 'page',
+            'active' => 'content',
             'types' => Type::select('type')->get(),
         ]);
     }
 
     public function store(StoreContentRequest $request)
     {
-        $contentInfo = $request->validated();
+        $contentExist = Content::where('slug', Str::slug($request->title_eng))->first();
+        dd($contentExist->slug);
+        $contentInfo = $request->validated(); 
+        if(!isset($contentExist->slug)){
 
-        if($request->hasFile('mag_antsi')) {
-            $contentInfo['mag_antsi'] = $request->file('mag_antsi')->store('mag-antsi', 'public');
-        }
-
-        if($request->media_type === 'Embed') {
-            $contentInfo['media'] = $request->embed;
-        }
-        else {
-            if($request->hasFile('media')) {
-                $contentInfo['media'] = $request->file('media')->store('media', 'public');
+            if($request->hasFile('mag_antsi')) {
+                $contentInfo['mag_antsi'] = $request->file('mag_antsi')->store('mag-antsi', 'public');
             }
+            if($request->media_type === 'Embed') {
+                $contentInfo['media'] = $request->embed;
+            }
+            else {
+                if($request->hasFile('media')) {
+                    $contentInfo['media'] = $request->file('media')->store('media', 'public');
+                }
+            }
+            $contentInfo['spotlight'] = $request->spotlight === 'on' ? 1 : 0;
+            $contentInfo['slug'] = Str::slug($request->title_eng);
+
+            Content::create($contentInfo);
+            return redirect()->route('contents.index')->with('message', 'Content Successfully Created');
+        }
+        else{
+            return back()->with('message', 'Content already exist please make other title');
         }
 
-        $contentInfo['spotlight'] = $request->spotlight === 'on' ? 1 : 0;
-        $contentInfo['slug'] = Str::slug($request->title_eng);
-
-        Content::create($contentInfo);
-
-        return redirect()->route('contents.index')->with('message', 'Content Successfully Created');
+       
     }
 
     public function edit($content)
     {
 
         return view('backend.contents.edit', [
+            'show' => 'page',
+            'active' => 'content',
             'content' => Content::find(Crypt::decryptString($content)),
             'types' => Type::select('type')->get(),
         ]);
@@ -92,7 +105,7 @@ class ContentController extends Controller
 
         $content->update($contentInfo);
 
-        return redirect()->route('contents.index')->with('message', 'Content Successfully Updated');
+        return redirect()->route('contents.index')->with('message', 'Content Successfully Updated')->with('show', 'page',)->with('active', 'content',);
     }
 
     public function destroy($content)
@@ -116,6 +129,8 @@ class ContentController extends Controller
     {
 
         return view('backend.contents.show', [
+            'show' => 'page',
+            'active' => 'content',
             'content' => Content::find(Crypt::decryptString($content)),
         ]);
     }

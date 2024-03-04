@@ -12,6 +12,8 @@ class AttachmentController extends Controller
     public function index($glossary)
     {
         return view('backend.attachments.index', [
+            'show' => 'page',
+            'active' => 'glossary',
             'glossary' => Glossary::with('attachments')->find(Crypt::decryptString($glossary)),
         ]);
     }

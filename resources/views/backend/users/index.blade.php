@@ -35,9 +35,8 @@
                     <td>{{ $user->username }}</td>
                     <td>{{ date('M d, Y', strtotime($user->created_at)) }}</td>
                     <td>
-                        <a href="" class="btn btn-sm btn-secondary">Reset Password</a>
-                        <a href="" class="btn btn-sm btn-info">View</a>
                         <a href="{{ route('users.edit', Crypt::encryptString($user->id)) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('password.edit', Crypt::encryptString($user->id)) }}" class="btn btn-sm btn-success">Reset Password</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal{{$user->id}}">Delete</button>
                     </td>
                 </tr>

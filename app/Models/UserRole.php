@@ -13,6 +13,4 @@ class UserRole extends Model
         'role',
         'description',
     ];
-
-   
 }

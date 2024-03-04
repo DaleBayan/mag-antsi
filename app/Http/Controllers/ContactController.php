@@ -13,13 +13,18 @@ class ContactController extends Controller
     public function index()
     {
         return view('backend.contacts.index', [
+            'show' => 'system setup',
+            'active' => 'contact',
             'contacts' => Contact::all(),
         ]);
     }
 
     public function create()
     {
-        return view('backend.contacts.create');
+        return view('backend.contacts.create',[
+            'show' => 'system setup',
+            'active' => 'contact',
+        ]);
     }
 
     public function store(StoreContactRequest $request)
@@ -32,6 +37,8 @@ class ContactController extends Controller
     public function edit($contact)
     {
         return view('backend.contacts.edit', [
+            'show' => 'system setup',
+            'active' => 'contact',
             'contact' => Contact::find(Crypt::decryptString($contact)),
         ]);
     }

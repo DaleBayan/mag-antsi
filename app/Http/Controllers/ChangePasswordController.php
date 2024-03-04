@@ -11,7 +11,10 @@ class ChangePasswordController extends Controller
     
     public function index()
     {
-        return view('backend.change_password.index');
+        return view('backend.change_password.index',[
+            'show' => 'system setup',
+            'active' => 'change password'
+        ]);
     }
 
     public function change_password(ChangePasswordRequest $request)

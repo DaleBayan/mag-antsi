@@ -19,6 +19,8 @@
               <thead>
                 <tr>
                   <th scope="col">Type</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Date Created</th>
                   <th scope="col">Options</th>
                 </tr>
@@ -27,6 +29,8 @@
                 @foreach ($types as $type)
                 <tr>
                     <td>{{ $type->type }}</td>
+                    <td>{{ $type->title }}</td>
+                    <td>{!! $type->description !!}</td>
                     <td>{{ date('M d, Y', strtotime($type->created_at)) }}</td>
                     <td>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContentTypeModal{{ $type->id }}">Delete</button>
