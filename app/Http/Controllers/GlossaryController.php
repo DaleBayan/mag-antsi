@@ -33,11 +33,15 @@ class GlossaryController extends Controller
     public function store(StoreGlossaryRequest $request)
     {
         $glossaryInfo = $request->validated();
+
         if($request->hasFile('mag_antsi')) {
             $glossaryInfo['mag_antsi'] = $request->file('mag_antsi')->store('mag-antsi', 'public');
         }
+
         $glossaryInfo['slug'] = Str::slug($request->term_eng);
+
         Glossary::create($glossaryInfo);
+
         return redirect()->route('glossaries.index')->with('message', 'Term Successfully Created');
     }
 
@@ -53,12 +57,16 @@ class GlossaryController extends Controller
     public function update(UpdateGlossaryRequest $request, $glossary)
     {
         $glossary = Glossary::find(Crypt::decryptString($glossary));
+
         $glossaryInfo = $request->validated();
+
         if ($request->hasFile('mag_antsi')) {
+            
             if ($glossary->mag_antsi && Storage::disk('public')->exists($glossary->mag_antsi)) {
                 Storage::disk('public')->delete($glossary->mag_antsi);
             }
             $glossaryInfo['mag_antsi'] = $request->file('mag_antsi')->store('mag-antsi', 'public');
+
         }
 
         $glossaryInfo['slug'] = Str::slug($request->term_eng);
@@ -91,7 +99,8 @@ class GlossaryController extends Controller
     public function show($glossary)
     {
         return view('backend.glossaries.show', [
-            'show' => 'page','active' => 'glossary',
+            'show' => 'page',
+            'active' => 'glossary',
             'glossary' => Glossary::find(Crypt::decryptString($glossary)),
         ]);
     }
